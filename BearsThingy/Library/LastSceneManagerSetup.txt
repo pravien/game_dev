@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Bear.unity
+  isLoaded: 1
+  isActive: 1
