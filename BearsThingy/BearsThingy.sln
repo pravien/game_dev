@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
+# Visual Studio for Mac
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BearsThingy", "BearsThingy.csproj", "{7C8AF371-039E-E012-7C7C-8272CF3D4153}"
 EndProject
 Global

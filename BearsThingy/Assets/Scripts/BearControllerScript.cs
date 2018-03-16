@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class BearControllerScript : MonoBehaviour {
+public class BearControllerScript : NetworkBehaviour {
 
-	public float maxSpeed = 10f;
-	bool facingRight = true;
+	
 
     Animator anim;
 
@@ -14,6 +14,10 @@ public class BearControllerScript : MonoBehaviour {
     float groundRadius = 0.2f;
     public LayerMask whatIsGround;
     public float jumpForce = 700f;
+    public float maxSpeed = 10f;
+    bool facingRight = true;
+    public GameObject bulletPrefab;
+    public Transform bulletSpawn;
 
 	// Use this for initialization
 	void Start () {
@@ -24,7 +28,10 @@ public class BearControllerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-
+        if (!isLocalPlayer)
+        {
+            return;
+        }
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         anim.SetBool("Ground", grounded);
 
@@ -43,9 +50,17 @@ public class BearControllerScript : MonoBehaviour {
 	}
 
     private void Update() {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
         if(grounded && Input.GetKeyDown(KeyCode.Space)) {
             anim.SetBool("Ground", false);
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Fire();
         }
     }
 
@@ -55,4 +70,19 @@ public class BearControllerScript : MonoBehaviour {
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+    void Fire()
+    {
+        // Create the Bullet from the Bullet Prefab
+        var bullet = (GameObject)Instantiate(
+            bulletPrefab,
+            bulletSpawn.position,
+            bulletSpawn.rotation);
+
+        // Add velocity to the bullet
+        bullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(500, 0)); 
+
+        // Destroy the bullet after 2 seconds
+        Destroy(bullet, 2.0f);
+    }
 }

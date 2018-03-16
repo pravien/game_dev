@@ -1,12 +1,14 @@
-﻿<Properties StartupItem="BearsThingy.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BearControllerScript.cs">
+﻿<Properties StartupConfiguration="{7C8AF371-039E-E012-7C7C-8272CF3D4153}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BearControllerScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\BearControllerScript.cs" Line="19" Column="72" />
+      <File FileName="Assets/Scripts/BearControllerScript.cs" Line="78" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.BearsThingy PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>
